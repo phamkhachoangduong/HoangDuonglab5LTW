@@ -1,0 +1,36 @@
+﻿@model HoangDuonglab5.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+<hr />
+<div class="card p-3" style="max-width: 600px;">
+    <div class="text-center mb-3">
+        <img src="~/products/@Model.Image" alt="@Model.Name" class="img-fluid rounded" style="max-height: 250px;" />
+    </div>
+    <dl class="row">
+        <dt class="col-sm-4">Mã sản phẩm:</dt>
+        <dd class="col-sm-8">@Model.Id</dd>
+
+        <dt class="col-sm-4">Tên sản phẩm:</dt>
+        <dd class="col-sm-8">@Model.Name</dd>
+
+        <dt class="col-sm-4">Danh mục:</dt>
+        <dd class="col-sm-8"><span class="badge bg-secondary">@ViewBag.CategoryName</span></dd>
+
+        <dt class="col-sm-4">Giá chuẩn:</dt>
+        <dd class="col-sm-8">@Model.Price.ToString("N0") đ</dd>
+
+        <dt class="col-sm-4">Giá khuyến mãi:</dt>
+        <dd class="col-sm-8 text-danger fw-bold">@Model.SalePrice.ToString("N0") đ</dd>
+
+        <dt class="col-sm-4">Mô tả:</dt>
+        <dd class="col-sm-8">@Model.Description</dd>
+    </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Chỉnh sửa</a>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+</div>
